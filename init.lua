@@ -66,18 +66,6 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   -- NOTE: First, some plugins that don't require any configuration
 
-  -- Git related plugins
-  'tpope/vim-fugitive',
-  'kdheepak/lazygit.nvim',
-
-  'tpope/vim-rhubarb',
-
-  -- Python related plugins
-  'fisadev/vim-isort',
-  'davidhalter/jedi-vim',
-  'psf/black',
-  'nvie/vim-flake8',
-
   -- Tmux related plugins
   'christoomey/vim-tmux-navigator',
 
