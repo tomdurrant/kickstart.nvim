@@ -68,8 +68,20 @@ require('lazy').setup({
 
   -- Git related plugins
   'tpope/vim-fugitive',
+  'kdheepak/lazygit.nvim',
+
   'tpope/vim-rhubarb',
 
+  -- Python related plugins
+  'fisadev/vim-isort',
+  'davidhalter/jedi-vim',
+  'psf/black',
+  'nvie/vim-flake8',
+
+  -- Tmux related plugins
+  'christoomey/vim-tmux-navigator',
+
+   
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
@@ -199,7 +211,7 @@ vim.o.hlsearch = false
 vim.wo.number = true
 
 -- Enable mouse mode
-vim.o.mouse = 'a'
+vim.o.mouse = 'v'
 
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
@@ -267,6 +279,7 @@ require('telescope').setup {
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
 
+
 -- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
@@ -283,6 +296,9 @@ vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+
+require('telescope').load_extension('lazygit')
+vim.keymap.set('n', '<leader>gg', ':LazyGit<CR>',  { desc = "Go to previous diagnostic message" })
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
